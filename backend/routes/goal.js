@@ -7,9 +7,11 @@ const {
   deleteGoal,
 } = require("../controllers/goal");
 
+const { protect } = require("../middleware/auth");
+
 // Better way if the route is the same but method is deff =>
-router.route("/").get(getGoals).post(setGoal);
-router.route("/:id").put(updateGoal).delete(deleteGoal);
+router.route("/").get(protect, getGoals).post(protect, setGoal);
+router.route("/:id").put(protect, updateGoal).delete(protect, deleteGoal);
 
 // ===========
 // Sinc the route for GET & POST are the same we can clean the code up ^

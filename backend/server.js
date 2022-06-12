@@ -2,6 +2,7 @@ const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const goalRoute = require("./routes/goal");
+const userRoute = require("./routes/user");
 const { errorHandler } = require("./middleware/error");
 const connectDB = require("./config/db");
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // The routes
 app.use("/api/goals", goalRoute);
+app.use("/api/users", userRoute);
 
 // Override the default Error handler for express
 app.use(errorHandler);
