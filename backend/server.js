@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/goals", goalRoute);
 app.use("/api/users", userRoute);
 
-// Serve frontend
+// Serve frontend, production stuff
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
   app.get("*", (req, res) =>
