@@ -14,7 +14,7 @@ const Dashboard = () => {
   );
 
   useEffect(() => {
-    if (isError) {
+    if (user && isError) {
       toast.error(message);
     }
 
@@ -22,7 +22,9 @@ const Dashboard = () => {
       navigate("/login");
     }
 
-    dispatch(getGoals());
+    if (user) {
+      dispatch(getGoals());
+    }
 
     return () => {
       dispatch(reset());

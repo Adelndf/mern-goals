@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
@@ -11,6 +12,7 @@ const Header = () => {
 
   const onLogout = () => {
     dispatch(logout());
+    toast.success("Logged out seccessfully");
     dispatch(reset());
     navigate("/");
   };

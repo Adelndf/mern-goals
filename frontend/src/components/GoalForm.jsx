@@ -9,12 +9,13 @@ const GoalForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() !== "") {
-      toast.success("Added goal seccessfully");
-      dispatch(createGoal({ text: text }));
+    if (text.trim() === "") {
+      toast.error("Please add a goal");
       setText("");
     } else {
-      toast.error("Please add a goal");
+      toast.success("Added goal seccessfully");
+      dispatch(createGoal({ text }));
+      setText("");
     }
   };
 

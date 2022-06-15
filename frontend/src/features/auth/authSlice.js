@@ -56,7 +56,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isSeccess = false;
       state.isError = false;
-      state.message = false;
+      state.message = "";
     },
   },
   // extraReducers is more for the async functions
